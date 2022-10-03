@@ -56,3 +56,19 @@ double FindDiffMaxMin(double[] array) {
     double diff = max - min;
     return diff;
 }
+
+/* int[] array1 = new int[]{-1, 1, -2};
+int res = FindDiffMaxMin1(array1);
+Console.WriteLine(res);
+
+int FindDiffMaxMin1(int[] array) {
+    int max = array[0];
+    int min = array[0];
+    for (int i = 0; i < array.Length; i++) {
+        if (array[i] > max) max = array[i];
+        if (array[i] < min) min = array[i];
+    }
+    // if (min < 0) min = -min;
+    int diff = max - min;
+    return diff;
+} */
