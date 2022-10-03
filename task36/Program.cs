@@ -14,3 +14,13 @@ int[] ParseToArray(string str) {
     }
     return numArray;
 }
+
+int SumOfOddElem(int[] array) {
+    for (int i = 0; i < array.Length; i++) {
+        int sum = 0;
+        if (array[i] % 2 != 0) {
+            sum += array[i];
+        }
+    }
+    return sum;
+}
