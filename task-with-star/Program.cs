@@ -12,7 +12,12 @@ Console.Clear();
 Console.Write("Введите массив, последовательностей элементов. Элементы введите через пробел: ");
 string str = Console.ReadLine()!;
 int[] arr = ParseToArray(str);
-FindChain(arr);
+int[] resArr = FindChain(arr);
+
+Console.WriteLine($"[{str}] ->");
+Console.WriteLine($"Count: {resArr[0]}");
+Console.WriteLine($"Element: {resArr[1]}");
+Console.WriteLine($"Position: {resArr[2]}");
 
 int[] ParseToArray(string str) {
     string[] stringArray = str.Split(" ");
@@ -44,6 +49,7 @@ int[] FindChain(int[] array) {
     resultArray[0] = prevCount;
     resultArray[1] = element;
     resultArray[2] = position;
-    
+
     return resultArray;
 }
+
