@@ -5,6 +5,15 @@
 [345, 897, 568, 234] -> 2
 */
 
+Console.Clear();
+Console.Write("Вы находитесь в программе подсчета четных чисел в массиве. Введите число элементов массива: ");
+int number = int.Parse(Console.ReadLine()!);
+
+int[] arr = CreateRandomArray(number);
+PrintArray(arr);
+int even = FindAmountEvenNum(arr);
+Console.WriteLine($"Число четных элементов массива равно {even}");
+
 int[] CreateRandomArray(int length) {
     int[] array = new int[length];
     Random randNumGen = new Random();
