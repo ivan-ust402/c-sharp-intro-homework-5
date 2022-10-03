@@ -4,7 +4,16 @@
 [3 7 22 2 78] -> 76
 */
 
-int[] CreateArrayRealElem(int length) {
+Console.Clear();
+Console.WriteLine("Вы находитесь в программе по поиску разницы между максимальным значением массива и минимальным.");
+Console.WriteLine("Введите размерность (длину) желаемого массива: ");
+int number = int.Parse(Console.ReadLine()!);
+double[] arr = CreateArrayRealElem(number);
+PrintArray(arr);
+double result = FindDiffMaxMin(arr);
+Console.WriteLine($"Разница между максимальным значением элемента массива и минимальным равна {result}");
+
+double[] CreateArrayRealElem(int length) {
     double[] array = new double[length];
     Random RandomGen = new Random();
     for (int i = 0; i < array.Length; i++) {
@@ -13,7 +22,7 @@ int[] CreateArrayRealElem(int length) {
     return array;
 }
 
-void PrintArray(double[] arr) {
+void PrintArray(double[] array) {
         for (int i = 0; i < array.Length; i++) 
     {
         if (i == 0 && array.Length > 1) 
@@ -36,13 +45,14 @@ void PrintArray(double[] arr) {
      Console.WriteLine("");
 }
 
-int FindDiffMaxMin(double[] array) {
+double FindDiffMaxMin(double[] array) {
     double max = array[0];
     double min = array[0];
     for (int i = 0; i < array.Length; i++) {
         if (array[i] > max) max = array[i];
-        else if (array[i] < min) min = array[i];
+        if (array[i] < min) min = array[i];
     }
+    if (min < 0) min = -min;
     double diff = max - min;
     return diff;
 }
