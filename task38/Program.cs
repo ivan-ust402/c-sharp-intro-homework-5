@@ -17,7 +17,7 @@ double[] CreateArrayRealElem(int length) {
     double[] array = new double[length];
     Random RandomGen = new Random();
     for (int i = 0; i < array.Length; i++) {
-        array[i] = RandomGen.NextDouble();
+        array[i] = Math.Round((RandomGen.NextDouble() + RandomGen.Next(-9, 10)), 4);
     }
     return array;
 }
@@ -46,13 +46,12 @@ void PrintArray(double[] array) {
 }
 
 double FindDiffMaxMin(double[] array) {
-    double max = array[0];
-    double min = array[0];
+    double max = double.MinValue;
+    double min = double.MaxValue;
     for (int i = 0; i < array.Length; i++) {
         if (array[i] > max) max = array[i];
         if (array[i] < min) min = array[i];
     }
-    if (min < 0) min = -min;
     double diff = max - min;
     return diff;
 }
